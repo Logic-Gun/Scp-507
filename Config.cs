@@ -15,6 +15,9 @@ namespace Scp_507
         [Description("Scp507 Teleporter: Maximum time (seconds)")]
         public uint Scp507TeleporterMax { get; set; } = 135;
 
+        [Description("Scp507: Distance to nearest players.")]
+        public float Scp507DistanceNearestPlayers { get; set; } = 5;
+
         [Description("Custom Roles: Settings")]
         public Scp507 Scp507 { get; set; } = new();
     }

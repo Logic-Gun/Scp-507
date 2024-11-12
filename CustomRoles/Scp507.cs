@@ -62,7 +62,7 @@ namespace Scp_507.CustomRoles
             {
                 List<Player> players = [ev.Player];
 
-                foreach (Player pl in Player.List.Where(r => r.IsAlive && !r.IsScp && Vector3.Distance(ev.Player.Position, r.Position) <= 5))
+                foreach (Player pl in Player.List.Where(r => r.IsAlive && !r.IsScp && Vector3.Distance(ev.Player.Position, r.Position) <= Plugin.Instance.Config.Scp507DistanceNearestPlayers))
                 {
                     players.Add(pl);
                 }
@@ -88,7 +88,7 @@ namespace Scp_507.CustomRoles
             {
                 players = [pl];
 
-                foreach (Player ply in Player.List.Where(r => r.IsAlive && !r.IsScp && Vector3.Distance(pl.Position, r.Position) <= 5))
+                foreach (Player ply in Player.List.Where(r => r.IsAlive && !r.IsScp && Vector3.Distance(pl.Position, r.Position) <= Plugin.Instance.Config.Scp507DistanceNearestPlayers))
                 {
                     players.Add(pl);
                 }
