@@ -1,6 +1,7 @@
 ﻿using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.CustomRoles.API;
+using Scp_507.Events;
 using System;
 using System.Collections.Generic;
 
@@ -22,16 +23,30 @@ namespace Scp_507
 
             Instance.Config.Scp507.Register();
 
+            SubscribeEvents();
+
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
+            UnsubscribeEvents();
+
             Instance.Config.Scp507.Unregister();
 
             Instance = null;
 
             base.OnDisabled();
+        }
+
+        private void SubscribeEvents()
+        {
+            Exiled.Events.Handlers.Player.ChangingRole += PlayerHandler.OnChangingRole;
+        }
+
+        private void UnsubscribeEvents()
+        {
+            Exiled.Events.Handlers.Player.ChangingRole -= PlayerHandler.OnChangingRole;
         }
     }
 }

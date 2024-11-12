@@ -1,5 +1,4 @@
 ﻿using Exiled.API.Features;
-using Exiled.CustomRoles.API.Features;
 using UnityEngine;
 
 namespace Scp_507.Components

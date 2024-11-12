@@ -9,6 +9,9 @@ namespace Scp_507
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
 
+        [Description("Scp507: Spawn chance")]
+        public byte Scp507SpawnChance { get; set; } = 75;
+
         [Description("Scp507 Teleporter: Minimum time (seconds)")]
         public uint Scp507TeleporterMin { get; set; } = 2;
 

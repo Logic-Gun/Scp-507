@@ -92,6 +92,7 @@ namespace Scp_507.CustomRoles
                 {
                     players.Add(pl);
                 }
+
                 Room room = Room.List.Where(r => !Plugin.StupidRooms.Contains(r.Type)).GetRandomValue();
                 newPosition = room.Position + new Vector3(0, 1.2f);
 
