@@ -1,6 +1,8 @@
-﻿using Exiled.API.Features;
+﻿using Exiled.API.Enums;
+using Exiled.API.Features;
 using Exiled.CustomRoles.API;
 using System;
+using System.Collections.Generic;
 
 namespace Scp_507
 {
@@ -12,10 +14,11 @@ namespace Scp_507
         public override Version Version => new(1, 0, 1);
 
         public static Plugin Instance;
+        internal static List<RoomType> StupidRooms = [RoomType.HczTesla, RoomType.HczTestRoom];
 
         public override void OnEnabled()
         {
-            Instance = this;
+            Instance = this; 
 
             Instance.Config.Scp507.Register();
 

@@ -1,4 +1,5 @@
 ﻿using Exiled.API.Features;
+using Exiled.CustomRoles.API.Features;
 using UnityEngine;
 
 namespace Scp_507.Components
@@ -13,15 +14,16 @@ namespace Scp_507.Components
             _player = pl;
             Cooldown = 0;
 
-            InvokeRepeating("HUD", 0, 1);
+            InvokeRepeating("HUD", 0, 0.5f);
             return this;
         }
 
         internal void HUD()
         {
-            if (Cooldown > 0) Cooldown--;
+            if (!_player.IsAlive) Destroy(this);
+            if (Cooldown > 0) Cooldown -= 0.5f;
 
-            _player.ShowHint(Plugin.Instance.Translation.Teleport.Replace("%s%", Cooldown == 0 ? string.Empty : $"({Cooldown})"), 1.5f);
+            _player.ShowHint(Plugin.Instance.Translation.Teleport.Replace("%s%", Cooldown <= 0 ? string.Empty : $"({Cooldown})"));
         }
     }
 }
